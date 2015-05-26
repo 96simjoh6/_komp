@@ -1,0 +1,7 @@
+2015-05-26:
+
+-	Skapat repo på github
+-	Skapat alla filer som behövs för programmet
+-	Skissat och skapat ett GUI
+-	Grundläggande events, e.x när man klickar på buttons
+-	Namngivit alla objekt i GUI
