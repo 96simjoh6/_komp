@@ -27,85 +27,52 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rb_woman = new javax.swing.JRadioButton();
-        Man = new javax.swing.JRadioButton();
-        lbl_surname = new javax.swing.JLabel();
-        txf_surname = new javax.swing.JTextField();
-        txf_firstname = new javax.swing.JTextField();
-        lbl_firstname = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txf_number = new javax.swing.JTextField();
-        rb_home = new javax.swing.JRadioButton();
-        rb_mobile = new javax.swing.JRadioButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        rb_JSON = new javax.swing.JRadioButton();
+        rb_XML = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        btn_add = new javax.swing.JButton();
+        txf_main = new javax.swing.JTextArea();
+        lbl_name = new javax.swing.JLabel();
+        xml_txf_name = new javax.swing.JTextField();
+        lbl_age = new javax.swing.JLabel();
+        xml_txf_age = new javax.swing.JTextField();
+        btn_save = new javax.swing.JButton();
+        lbl_phone = new javax.swing.JLabel();
+        txf_phone = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        menubtn_loadfile = new javax.swing.JMenuItem();
-        menubtn_savefile = new javax.swing.JMenuItem();
+        menubtn_explorer = new javax.swing.JMenuItem();
         menubtn_exit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        rb_woman.setText("Woman");
-        rb_woman.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rb_JSON);
+        rb_JSON.setText("JSON");
+
+        buttonGroup1.add(rb_XML);
+        rb_XML.setText("XML");
+
+        txf_main.setColumns(20);
+        txf_main.setRows(5);
+        jScrollPane1.setViewportView(txf_main);
+
+        lbl_name.setText("Name:");
+
+        lbl_age.setText("Age:");
+
+        btn_save.setText("SAVE");
+        btn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_womanActionPerformed(evt);
+                btn_saveActionPerformed(evt);
             }
         });
 
-        Man.setText("Man");
-
-        lbl_surname.setText("Surname");
-
-        txf_surname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txf_surnameActionPerformed(evt);
-            }
-        });
-
-        lbl_firstname.setText("Firstname");
-
-        jLabel1.setText("Phone number");
-
-        rb_home.setText("Home");
-
-        rb_mobile.setText("Mobile");
-        rb_mobile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_mobileActionPerformed(evt);
-            }
-        });
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        btn_add.setText("Add");
-        btn_add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addActionPerformed(evt);
-            }
-        });
+        lbl_phone.setText("Phone:");
 
         jMenu1.setText("File");
 
-        menubtn_loadfile.setText("Load File");
-        menubtn_loadfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menubtn_loadfileActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menubtn_loadfile);
-
-        menubtn_savefile.setText("Save File");
-        menubtn_savefile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menubtn_savefileActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menubtn_savefile);
+        menubtn_explorer.setText("Explorer");
+        jMenu1.add(menubtn_explorer);
 
         menubtn_exit.setText("Exit");
         menubtn_exit.addActionListener(new java.awt.event.ActionListener() {
@@ -125,90 +92,69 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_name, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txf_surname))
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txf_firstname))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Man, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rb_woman, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
+                        .addComponent(xml_txf_name))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_save)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rb_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txf_number)
-                            .addComponent(rb_mobile, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
-                    .addComponent(btn_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(rb_XML, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rb_JSON, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbl_phone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(lbl_age, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(xml_txf_age)
+                            .addComponent(txf_phone))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_firstname)
-                    .addComponent(txf_firstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_surname)
-                    .addComponent(txf_surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txf_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Man)
-                    .addComponent(rb_home))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rb_woman)
-                    .addComponent(rb_mobile))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_add)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(rb_XML)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rb_JSON)
+                        .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_name)
+                            .addComponent(xml_txf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_age)
+                            .addComponent(xml_txf_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_phone)
+                            .addComponent(txf_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_save)
+                        .addGap(31, 31, 31))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menubtn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_exitActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_menubtn_exitActionPerformed
 
-    private void menubtn_savefileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_savefileActionPerformed
+    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menubtn_savefileActionPerformed
-
-    private void menubtn_loadfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_loadfileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menubtn_loadfileActionPerformed
-
-    private void rb_mobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_mobileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_mobileActionPerformed
-
-    private void txf_surnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_surnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txf_surnameActionPerformed
-
-    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_addActionPerformed
-
-    private void rb_womanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_womanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_womanActionPerformed
+    }//GEN-LAST:event_btn_saveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,23 +192,21 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton Man;
-    private javax.swing.JButton btn_add;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_save;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lbl_firstname;
-    private javax.swing.JLabel lbl_surname;
+    private javax.swing.JLabel lbl_age;
+    private javax.swing.JLabel lbl_name;
+    private javax.swing.JLabel lbl_phone;
     private javax.swing.JMenuItem menubtn_exit;
-    private javax.swing.JMenuItem menubtn_loadfile;
-    private javax.swing.JMenuItem menubtn_savefile;
-    private javax.swing.JRadioButton rb_home;
-    private javax.swing.JRadioButton rb_mobile;
-    private javax.swing.JRadioButton rb_woman;
-    private javax.swing.JTextField txf_firstname;
-    private javax.swing.JTextField txf_number;
-    private javax.swing.JTextField txf_surname;
+    private javax.swing.JMenuItem menubtn_explorer;
+    private javax.swing.JRadioButton rb_JSON;
+    private javax.swing.JRadioButton rb_XML;
+    private javax.swing.JTextArea txf_main;
+    private javax.swing.JTextField txf_phone;
+    private javax.swing.JTextField xml_txf_age;
+    private javax.swing.JTextField xml_txf_name;
     // End of variables declaration//GEN-END:variables
 }

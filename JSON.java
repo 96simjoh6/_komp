@@ -9,6 +9,6 @@ package komp;
  *
  * @author SAJMOON
  */
-public class sub_2 {
+public class JSON {
     
 }

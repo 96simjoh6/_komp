@@ -9,6 +9,6 @@ package komp;
  *
  * @author SAJMOON
  */
-public class sub_1 {
+public class XML {
     
 }
