@@ -9,6 +9,9 @@ package komp;
  *
  * @author SAJMOON
  */
-public class Abstract {
+public abstract class Abstract implements Comparable{
+    public abstract String getAge();
     
+    @Override
+    public abstract String toString();
 }

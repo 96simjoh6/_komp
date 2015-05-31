@@ -5,9 +5,8 @@
  */
 package komp;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JFileChooser;
+
 
 /**
  *
@@ -17,7 +16,6 @@ public class GUI extends javax.swing.JFrame {
 
     private Libary Lib;
     private String filename;
-    private ArrayList<Abstract> array;
     
     
     /**
@@ -26,7 +24,6 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         Lib = new Libary();
-        array = new ArrayList<>();
     }
 
     /**
@@ -63,6 +60,7 @@ public class GUI extends javax.swing.JFrame {
         buttonGroup1.add(rb_XML);
         rb_XML.setText("XML");
 
+        txa_main.setEditable(false);
         txa_main.setColumns(20);
         txa_main.setRows(5);
         jScrollPane1.setViewportView(txa_main);
@@ -175,13 +173,9 @@ public class GUI extends javax.swing.JFrame {
     private void menubtn_explorerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_explorerActionPerformed
         filename = Lib.getFile();
         String extension = filename.substring(0, Math.min(filename.length(), 4));
+        Lib.readFile(extension,filename);
         
-        switch (extension) {
-            case "_xml":
-                break;
-            case "json":
-                break;
-        }
+        txa_main.append(null);
     }//GEN-LAST:event_menubtn_explorerActionPerformed
 
     /**
