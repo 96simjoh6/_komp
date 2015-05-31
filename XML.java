@@ -10,28 +10,35 @@ package komp;
  * @author SAJMOON
  */
 public class XML extends Abstract{
-    private String name, numb, type;
-    private int age;
+    private final String first_name, last_name, numb;
+    private final int age;
     
-    public XML(String name, String numb, int age){
-        this.name = name;
+    public XML(String first_name, String last_name, String numb, int age){
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.numb = numb;
         this.age = age;
-        type = "XML";
     }
     
     @Override
     public String getAge(){
-        return "null";
+        return Integer.toString(age);
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return(
+                "<person>\n"+
+                "<first_name>"+first_name+"</first_name>\n" +
+                "<last_name>"+last_name+"</last_name>\n" +
+                "<telephone_number>"+numb+"</telephone_number>\n" +
+                "<age>"+age+"</age>\n" +
+                "</person>\n"
+        );
     }
 
     @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(Abstract compare) {
+        return (Integer.toString(age)).compareTo(compare.getAge());
     }
 }

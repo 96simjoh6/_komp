@@ -5,9 +5,6 @@
  */
 package komp;
 
-import java.util.ArrayList;
-
-
 /**
  *
  * @author SAJMOON
@@ -16,6 +13,7 @@ public class GUI extends javax.swing.JFrame {
 
     private Libary Lib;
     private String filename;
+    private int i;
     
     
     /**
@@ -24,6 +22,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         Lib = new Libary();
+        i = 0;
     }
 
     /**
@@ -40,13 +39,15 @@ public class GUI extends javax.swing.JFrame {
         rb_XML = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txa_main = new javax.swing.JTextArea();
-        lbl_name = new javax.swing.JLabel();
-        xml_txf_name = new javax.swing.JTextField();
+        lbl_first_name = new javax.swing.JLabel();
+        txf_first_name = new javax.swing.JTextField();
         lbl_age = new javax.swing.JLabel();
-        xml_txf_age = new javax.swing.JTextField();
+        txf_age = new javax.swing.JTextField();
         btn_save = new javax.swing.JButton();
         lbl_phone = new javax.swing.JLabel();
         txf_phone = new javax.swing.JTextField();
+        lbl_last_name = new javax.swing.JLabel();
+        txf_last_name = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menubtn_explorer = new javax.swing.JMenuItem();
@@ -65,7 +66,7 @@ public class GUI extends javax.swing.JFrame {
         txa_main.setRows(5);
         jScrollPane1.setViewportView(txa_main);
 
-        lbl_name.setText("Name:");
+        lbl_first_name.setText("First Name:");
 
         lbl_age.setText("Age:");
 
@@ -77,6 +78,8 @@ public class GUI extends javax.swing.JFrame {
         });
 
         lbl_phone.setText("Phone:");
+
+        lbl_last_name.setText("Last Name:");
 
         jMenu1.setText("File");
 
@@ -108,10 +111,6 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbl_name, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(xml_txf_name))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_save)
@@ -121,11 +120,18 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(rb_JSON, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbl_first_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_phone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                             .addComponent(lbl_age, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(xml_txf_age)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txf_first_name, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbl_last_name, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txf_last_name))
+                            .addComponent(txf_age)
                             .addComponent(txf_phone))))
                 .addContainerGap())
         );
@@ -144,12 +150,14 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_name)
-                            .addComponent(xml_txf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_first_name)
+                            .addComponent(txf_first_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_last_name)
+                            .addComponent(txf_last_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_age)
-                            .addComponent(xml_txf_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txf_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbl_phone)
@@ -167,15 +175,22 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_menubtn_exitActionPerformed
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        
+        if(rb_XML.isSelected()){
+            i = 1;
+            Lib.saveToFile(txf_first_name.getText(),txf_last_name.getText(),txf_phone.getText(),Integer.parseInt(txf_age.getText()), i);
+        }else if(rb_JSON.isSelected()){
+            i = 0;
+            Lib.saveToFile(txf_first_name.getText(),txf_last_name.getText(),txf_phone.getText(),Integer.parseInt(txf_age.getText()), i);
+        }
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void menubtn_explorerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_explorerActionPerformed
+        txa_main.setText("");
+        
         filename = Lib.getFile();
         String extension = filename.substring(0, Math.min(filename.length(), 4));
         Lib.readFile(extension,filename,txa_main);
         
-        txa_main.append(null);
     }//GEN-LAST:event_menubtn_explorerActionPerformed
 
     /**
@@ -220,15 +235,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_age;
-    private javax.swing.JLabel lbl_name;
+    private javax.swing.JLabel lbl_first_name;
+    private javax.swing.JLabel lbl_last_name;
     private javax.swing.JLabel lbl_phone;
     private javax.swing.JMenuItem menubtn_exit;
     private javax.swing.JMenuItem menubtn_explorer;
     private javax.swing.JRadioButton rb_JSON;
     private javax.swing.JRadioButton rb_XML;
     private javax.swing.JTextArea txa_main;
+    private javax.swing.JTextField txf_age;
+    private javax.swing.JTextField txf_first_name;
+    private javax.swing.JTextField txf_last_name;
     private javax.swing.JTextField txf_phone;
-    private javax.swing.JTextField xml_txf_age;
-    private javax.swing.JTextField xml_txf_name;
     // End of variables declaration//GEN-END:variables
 }

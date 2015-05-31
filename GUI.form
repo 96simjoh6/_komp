@@ -59,11 +59,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="1" pref="532" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lbl_name" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="xml_txf_name" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btn_save" min="-2" max="-2" attributes="0"/>
@@ -75,12 +70,20 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lbl_first_name" max="32767" attributes="0"/>
                           <Component id="lbl_phone" alignment="0" pref="90" max="32767" attributes="0"/>
                           <Component id="lbl_age" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="xml_txf_age" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="txf_first_name" min="-2" pref="125" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbl_last_name" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txf_last_name" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="txf_age" max="32767" attributes="0"/>
                           <Component id="txf_phone" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -105,13 +108,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="xml_txf_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_first_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txf_first_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_last_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txf_last_name" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbl_age" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="xml_txf_age" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txf_age" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -160,19 +165,19 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lbl_name">
+    <Component class="javax.swing.JLabel" name="lbl_first_name">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="First Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="xml_txf_name">
+    <Component class="javax.swing.JTextField" name="txf_first_name">
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_age">
       <Properties>
         <Property name="text" type="java.lang.String" value="Age:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="xml_txf_age">
+    <Component class="javax.swing.JTextField" name="txf_age">
     </Component>
     <Component class="javax.swing.JButton" name="btn_save">
       <Properties>
@@ -188,6 +193,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txf_phone">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_last_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Last Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txf_last_name">
     </Component>
   </SubComponents>
 </Form>

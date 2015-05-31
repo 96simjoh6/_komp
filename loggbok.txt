@@ -22,3 +22,10 @@
 
 -	Skrivit klart funktionerna (readFile, readXML, xmlToString, getData) som används för att läsa in och skriva ut XML-kod.
 - 	Fixat buggar på getFile, readFile.
+
+2015-05-31: Update 3;
+-       Uppdaterat GUI med extra textfield (Last name)
+-       Uppdaterat alla funktioner som involverade variabeln name, och ersatt med first och lastname
+-       Fixat småbuggar, och små fel i varje fil. Ändrat flera namn på olika variabler
+-       Skrivit XML.java, nästan klar
+-       Skapat de som krävs för att spara XML-kod i txt fil. Fungerar dock inte än.

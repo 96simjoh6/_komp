@@ -17,8 +17,8 @@ import java.io.*;
  */
 public class Libary {
     
-    Abstract aC = null;
-    private String filename, xml_full;
+    Abstract a;
+    private String filename, xml_full, json_full;
     private ArrayList<Abstract> array;
     
     
@@ -26,19 +26,22 @@ public class Libary {
         filename = null;
         array = new ArrayList<>();
         xml_full = null;
+        json_full = null;
     }
     
-    public void add(String name, String numb, int age, int i){
+    public void saveToFile(String first_name, String last_name, String numb, int age, int i){
         switch(i){
-            case 0:
-                aC = new XML(name,numb,age);
-                
-            break;
             case 1:
-                aC = new JSON(name,numb,age);
+                a = new XML(first_name,last_name,numb,age);
+                array.add(a);
+                xmlToFile();
+            break;
+            case 0:
+                a = new JSON(first_name,last_name,numb,age);
+                array.add(a);
+                jsonToFile();
             break;
         }
-        array.add(aC);
     }
     
     public String getFile(){
@@ -59,6 +62,7 @@ public class Libary {
                 break;
             case "json":
                 readJSON(filename);
+                txa_main.append(json_full);
                 break;
         }
     }
@@ -87,16 +91,6 @@ public class Libary {
         
     }
     
-    public String getData(Element e){
-        Node child = e.getFirstChild();
-        if(!(child instanceof CharacterData)){
-        }else{
-            CharacterData cd = (CharacterData) child;
-            return cd.getData();
-        }
-        return "?";
-    }
-    
     public String xmlToString(String xml){
         StringBuilder sb = new StringBuilder();
         try {DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -110,20 +104,20 @@ public class Libary {
             prop = (Element) antal.item(i);
 
            NodeList first_name = prop.getElementsByTagName("first_name");
-           Element e = (Element) first_name.item(0);
-           sb.append("First name: ").append(getData(e)).append("\n");
+           Element elm = (Element) first_name.item(0);
+           sb.append("First name: ").append(getData(elm)).append("\n");
 
            NodeList last_name = prop.getElementsByTagName("last_name");
-           e = (Element) last_name.item(0);
-           sb.append("Last name: ").append(getData(e)).append("\n");
+           elm = (Element) last_name.item(0);
+           sb.append("Last name: ").append(getData(elm)).append("\n");
 
            NodeList telephone_number = prop.getElementsByTagName("telephone_number");
-           e = (Element) telephone_number.item(0);
-           sb.append("Telephone number: ").append(getData(e)).append("\n");
+           elm = (Element) telephone_number.item(0);
+           sb.append("Telephone number: ").append(getData(elm)).append("\n");
 
            NodeList age = prop.getElementsByTagName("age");
-           e = (Element) age.item(0);
-           sb.append("Age: ").append(getData(e)).append("\n");
+           elm = (Element) age.item(0);
+           sb.append("Age: ").append(getData(elm)).append("\n");
            }
         xml_full = sb.toString();
         }
@@ -134,4 +128,35 @@ public class Libary {
         return(xml_full);
     }
     
+    public String getData(Element e){
+        Node child = e.getFirstChild();
+        if(!(child instanceof CharacterData)){
+        }else{
+            CharacterData cd = (CharacterData) child;
+            return cd.getData();
+        }
+        return null;
+    }
+    
+    public void xmlToFile(){
+          try{
+                    FileWriter fw = new FileWriter(filename, true) ; 
+                    BufferedWriter bw = new BufferedWriter(fw);
+                     try (PrintWriter pw = new PrintWriter(bw)) {
+                        for(Abstract b : array){
+                        pw.append(b.toString());
+                        }
+                        pw.close();
+                        }
+                
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    
+    public String jsonToFile(){
+        
+        
+        return null;
+    }
 }
