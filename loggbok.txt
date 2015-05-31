@@ -1,4 +1,4 @@
-2015-05-26:
+﻿2015-05-26:
 
 -	Skapat repo p� github
 -	Skapat alla filer som beh�vs f�r programmet
@@ -12,8 +12,13 @@
 -       Re-design på GUI
 -       Uppdaterat filnamn, objektnamn m.m.
 
-2015-05-31:
+2015-05-31: Update 1;
 
 -       Börjat skriva små funktioner, så som fileChooser
 -       Väldigt små ändringar på GUI:t
 -       Ändrat filnamn på Libary och Abstract.
+
+2015-05-31: Update 2;
+
+-	Skrivit klart funktionerna (readFile, readXML, xmlToString, getData) som används för att läsa in och skriva ut XML-kod.
+- 	Fixat buggar på getFile, readFile.

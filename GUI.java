@@ -173,7 +173,7 @@ public class GUI extends javax.swing.JFrame {
     private void menubtn_explorerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_explorerActionPerformed
         filename = Lib.getFile();
         String extension = filename.substring(0, Math.min(filename.length(), 4));
-        Lib.readFile(extension,filename);
+        Lib.readFile(extension,filename,txa_main);
         
         txa_main.append(null);
     }//GEN-LAST:event_menubtn_explorerActionPerformed
