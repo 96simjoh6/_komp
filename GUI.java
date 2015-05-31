@@ -5,17 +5,28 @@
  */
 package komp;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author SAJMOON
  */
 public class GUI extends javax.swing.JFrame {
 
+    private Libary Lib;
+    private String filename;
+    private ArrayList<Abstract> array;
+    
+    
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        Lib = new Libary();
+        array = new ArrayList<>();
     }
 
     /**
@@ -31,7 +42,7 @@ public class GUI extends javax.swing.JFrame {
         rb_JSON = new javax.swing.JRadioButton();
         rb_XML = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txf_main = new javax.swing.JTextArea();
+        txa_main = new javax.swing.JTextArea();
         lbl_name = new javax.swing.JLabel();
         xml_txf_name = new javax.swing.JTextField();
         lbl_age = new javax.swing.JLabel();
@@ -52,9 +63,9 @@ public class GUI extends javax.swing.JFrame {
         buttonGroup1.add(rb_XML);
         rb_XML.setText("XML");
 
-        txf_main.setColumns(20);
-        txf_main.setRows(5);
-        jScrollPane1.setViewportView(txf_main);
+        txa_main.setColumns(20);
+        txa_main.setRows(5);
+        jScrollPane1.setViewportView(txa_main);
 
         lbl_name.setText("Name:");
 
@@ -72,6 +83,11 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         menubtn_explorer.setText("Explorer");
+        menubtn_explorer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menubtn_explorerActionPerformed(evt);
+            }
+        });
         jMenu1.add(menubtn_explorer);
 
         menubtn_exit.setText("Exit");
@@ -153,8 +169,20 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_menubtn_exitActionPerformed
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_saveActionPerformed
+
+    private void menubtn_explorerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_explorerActionPerformed
+        filename = Lib.getFile();
+        String extension = filename.substring(0, Math.min(filename.length(), 4));
+        
+        switch (extension) {
+            case "_xml":
+                break;
+            case "json":
+                break;
+        }
+    }//GEN-LAST:event_menubtn_explorerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,7 +232,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menubtn_explorer;
     private javax.swing.JRadioButton rb_JSON;
     private javax.swing.JRadioButton rb_XML;
-    private javax.swing.JTextArea txf_main;
+    private javax.swing.JTextArea txa_main;
     private javax.swing.JTextField txf_phone;
     private javax.swing.JTextField xml_txf_age;
     private javax.swing.JTextField xml_txf_name;

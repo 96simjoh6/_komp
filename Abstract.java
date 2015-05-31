@@ -9,6 +9,6 @@ package komp;
  *
  * @author SAJMOON
  */
-public class abstr {
+public class Abstract {
     
 }

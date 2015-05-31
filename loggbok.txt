@@ -11,3 +11,9 @@
 -       Bytt idé till programmet
 -       Re-design på GUI
 -       Uppdaterat filnamn, objektnamn m.m.
+
+2015-05-31:
+
+-       Börjat skriva små funktioner, så som fileChooser
+-       Väldigt små ändringar på GUI:t
+-       Ändrat filnamn på Libary och Abstract.
