@@ -23,7 +23,14 @@ public class JSON extends Abstract{
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return(
+                "\r\n"+"\t"+"{"+"\r\n"+
+                "\t\t"+"\"firstName\": \""+first_name+"\","+"\r\n"+
+                "\t\t"+"\"lastName\": \""+last_name+"\","+"\r\n"+
+                "\t\t"+"\"phoneNumber\": \""+numb+"\","+"\r\n"+
+                "\t\t"+"\"age\": \""+age+"\","+"\r\n"+
+                "\t"+"},"+"\r\n"
+        );
     }
     
 }

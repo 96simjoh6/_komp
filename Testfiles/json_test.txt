@@ -1,0 +1,21 @@
+{"persons":[
+	{
+     		"firstName": "Simon",
+     		"lastName": "Johansson",
+     		"phoneNumber": "0702832406",
+     		"age": 18,
+ 	},
+	{
+     		"firstName": "Roflmaobob",
+     		"lastName": "Bobson",
+     		"phoneNumber": "070-cantaffordtelephone",
+     		"age": 12,
+ 	},
+	{
+		"firstName": "Testing",
+		"lastName": "thetest",
+		"phoneNumber": "12",
+		"age": "12",
+	},
+
+]}

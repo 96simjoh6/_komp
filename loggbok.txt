@@ -37,3 +37,16 @@
 -       Tagit bort compareTo, eftersom att jag inte såg den nödvändig till detta projekt
 -       Skrivit om små variablers namn i Libary
 -       I XML.java skrivit om toString funktionen så den fungerar som den ska.
+
+2015-06-01: Update 2;
+
+-       Skrivit klart JSON.java
+-       Skrivit funktionerna readJson, jsonToString och jsonToFile.
+-       Lagt till bibloteket org.json för att få json funktionerna att fungera
+-       Kommenterat all kod.
+
+#Sidenotes
+
+Filerna som ska läsas måste va namngivna "xml_****->.txt" eller "json****->.txt" p.g.a switchcasen i bibloteket.
+Skrivnings funktionen fungerar inte riktigt som den ska, p.g.a stäng "taggarna" i json och xml.
+Filerna som ska läsas måste även sparas i en mapp utanför där projektet startas.

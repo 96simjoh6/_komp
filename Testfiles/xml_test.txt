@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<test>
+    <person>
+        <first_name>Kalle</first_name>
+        <last_name>Anka</last_name>
+        <telephone_number>070-kvackkvack</telephone_number>
+        <age>42</age>
+    </person>
+    <person>
+        <first_name>Musse</first_name>
+        <last_name>Pigg</last_name>
+        <telephone_number>070-pippip</telephone_number>
+        <age>13</age>
+    </person>
+    <person>
+        <first_name>Simon</first_name>
+        <last_name>Johansson</last_name>
+        <telephone_number>070-137373</telephone_number>
+        <age>13</age>
+    </person>
+    <person>
+            <first_name>Grill</first_name>
+            <last_name>Krydda</last_name>
+            <telephone_number>070-test123</telephone_number>
+            <age>50</age>
+    </person>
+</test>
+
