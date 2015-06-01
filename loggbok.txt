@@ -24,8 +24,16 @@
 - 	Fixat buggar på getFile, readFile.
 
 2015-05-31: Update 3;
+
 -       Uppdaterat GUI med extra textfield (Last name)
 -       Uppdaterat alla funktioner som involverade variabeln name, och ersatt med first och lastname
 -       Fixat småbuggar, och små fel i varje fil. Ändrat flera namn på olika variabler
 -       Skrivit XML.java, nästan klar
 -       Skapat de som krävs för att spara XML-kod i txt fil. Fungerar dock inte än.
+
+2015-06-01: Update 1;
+
+-       Skrivit om funktionen xmlToString, förra fungerade inte med flera objekt i txt filen.
+-       Tagit bort compareTo, eftersom att jag inte såg den nödvändig till detta projekt
+-       Skrivit om små variablers namn i Libary
+-       I XML.java skrivit om toString funktionen så den fungerar som den ska.

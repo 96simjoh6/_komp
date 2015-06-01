@@ -19,26 +19,16 @@ public class XML extends Abstract{
         this.numb = numb;
         this.age = age;
     }
-    
-    @Override
-    public String getAge(){
-        return Integer.toString(age);
-    }
 
     @Override
     public String toString() {
         return(
-                "<person>\n"+
-                "<first_name>"+first_name+"</first_name>\n" +
-                "<last_name>"+last_name+"</last_name>\n" +
-                "<telephone_number>"+numb+"</telephone_number>\n" +
-                "<age>"+age+"</age>\n" +
-                "</person>\n"
+                "\r\n"+"<person>"+"\r\n"+
+                "\t"+"<first_name>"+first_name+"</first_name>"+"\r\n"+
+                "\t"+"<last_name>"+last_name+"</last_name>"+"\r\n"+
+                "\t"+"<telephone_number>"+numb+"</telephone_number>"+"\r\n"+
+                "\t"+"<age>"+age+"</age>"+"\r\n"+
+                "</person>"+"\r\n"
         );
-    }
-
-    @Override
-    public int compareTo(Abstract compare) {
-        return (Integer.toString(age)).compareTo(compare.getAge());
     }
 }

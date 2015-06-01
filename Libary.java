@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package komp;
 
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.xml.parsers.*;
-import org.xml.sax.InputSource;
 import org.w3c.dom.*;
 import java.io.*;
 /**
@@ -18,15 +12,17 @@ import java.io.*;
 public class Libary {
     
     Abstract a;
-    private String filename, xml_full, json_full;
+    private String filename, xml, json, xml_full;
     private ArrayList<Abstract> array;
+    private int i;
     
     
     public Libary(){
         filename = null;
         array = new ArrayList<>();
-        xml_full = null;
-        json_full = null;
+        xml = null;
+        json = null;
+        i = 0;
     }
     
     public void saveToFile(String first_name, String last_name, String numb, int age, int i){
@@ -62,14 +58,13 @@ public class Libary {
                 break;
             case "json":
                 readJSON(filename);
-                txa_main.append(json_full);
+                txa_main.append(json);
                 break;
         }
     }
     
     public String readXML(String filename){ 
-    String file = getClass().getResource(filename).getPath();
-    try(BufferedReader br = new BufferedReader(new FileReader(file))){
+    try(BufferedReader br = new BufferedReader(new FileReader(filename))){
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
             while(line != null){
@@ -78,54 +73,50 @@ public class Libary {
                 line = br.readLine();
             }
             br.close();
-            String xml = sb.toString();
+            xml = sb.toString();
             xmlToString(xml);
         } 
         catch (IOException e) {
             {e.printStackTrace();}
         }
-        return(xml_full);
+        return xml_full;
     }
     
     public void readJSON(String filename){
         
     }
     
-    public String xmlToString(String xml){
-        StringBuilder sb = new StringBuilder();
-        try {DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        InputSource is = new InputSource();
-        is.setCharacterStream(new StringReader(xml));
-        Document d = db.parse(is);
-        NodeList antal = d.getElementsByTagName("person");
-        for (int i = 0; i < antal.getLength(); i++) {
-           Element prop;
-            prop = (Element) antal.item(i);
-
-           NodeList first_name = prop.getElementsByTagName("first_name");
-           Element elm = (Element) first_name.item(0);
-           sb.append("First name: ").append(getData(elm)).append("\n");
-
-           NodeList last_name = prop.getElementsByTagName("last_name");
-           elm = (Element) last_name.item(0);
-           sb.append("Last name: ").append(getData(elm)).append("\n");
-
-           NodeList telephone_number = prop.getElementsByTagName("telephone_number");
-           elm = (Element) telephone_number.item(0);
-           sb.append("Telephone number: ").append(getData(elm)).append("\n");
-
-           NodeList age = prop.getElementsByTagName("age");
-           elm = (Element) age.item(0);
-           sb.append("Age: ").append(getData(elm)).append("\n");
-           }
-        xml_full = sb.toString();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+    public String xmlToString(String xml) {
         
-        return(xml_full);
+    try {
+	File fXmlFile = new File(filename);
+	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	Document doc = dBuilder.parse(fXmlFile);
+	doc.getDocumentElement().normalize();
+ 
+	NodeList nList = doc.getElementsByTagName("person");
+        for(i = 0; i < nList.getLength(); i++){
+ 
+		Node nNode = nList.item(i);
+ 
+		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+ 
+			Element eElement = (Element) nNode;
+                        
+                        xml_full += ( "\n" +
+			"First Name: " + eElement.getElementsByTagName("first_name").item(0).getTextContent() + "\n" +
+			"Last Name: " + eElement.getElementsByTagName("last_name").item(0).getTextContent() + "\n" +
+			"Telephone Number: " + eElement.getElementsByTagName("telephone_number").item(0).getTextContent() + "\n" +
+			"Age: " + eElement.getElementsByTagName("age").item(0).getTextContent() + "\n"
+                        );
+		}
+	}
+        } 
+        catch (Exception e) {
+	e.printStackTrace();
+        }
+        return xml_full;
     }
     
     public String getData(Element e){
@@ -144,9 +135,9 @@ public class Libary {
                     BufferedWriter bw = new BufferedWriter(fw);
                      try (PrintWriter pw = new PrintWriter(bw)) {
                         for(Abstract b : array){
-                        pw.append(b.toString());
+                            pw.println(b.toString());
                         }
-                        pw.close();
+                            pw.close();
                         }
                 
             }catch (Exception e) {

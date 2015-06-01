@@ -1,8 +1,0 @@
-{"persons":[
-	{
-     		"firstName": "Simon",
-     		"lastName": "Johansson",
-     		"age": 18,
-     		"phoneNumber": "0702832406",
- 	},
-]}
