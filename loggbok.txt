@@ -41,9 +41,14 @@
 2015-06-01: Update 2;
 
 -       Skrivit klart JSON.java
+-       Tagit bort funktionen getData eftersom att den inte behövdes mer.
 -       Skrivit funktionerna readJson, jsonToString och jsonToFile.
 -       Lagt till bibloteket org.json för att få json funktionerna att fungera
 -       Kommenterat all kod.
+
+2015-06-02:
+
+-	Sista updaten, skrivit klassdiagram
 
 #Sidenotes
 

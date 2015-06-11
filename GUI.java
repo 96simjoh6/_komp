@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package komp;
+    package komp;
 
 /**
  *
- * @author SAJMOON
+ * @author Simon Johansson
+ * Last updated 2015-06-01
  */
 public class GUI extends javax.swing.JFrame {
 
-    private Libary Lib;
+    private final Libary Lib;
     private String filename;
     private int i;
     
@@ -170,10 +166,22 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt, Exits the program on click.
+     */
     private void menubtn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_exitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menubtn_exitActionPerformed
 
+    /**
+     * Depending on what radiobutton is selected
+     * Sends a int, which later on is used in a Switch-case in Libary.java
+     * 
+     * Also sends all txf Inputs from user to Libary.java->saveToFile
+     * 
+     * @param evt 1 or 0 for Switch
+     */
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         if(rb_XML.isSelected()){
             i = 1;
@@ -184,6 +192,17 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_saveActionPerformed
 
+    /**
+     * Resets the JTextArea to empty
+     * 
+     * Using the length and Math.min takes out the first 4 letters in the filename
+     * (xml_ or json)
+     * 
+     * Which then is used in a Switch-case in Libary.java->readFile
+     * Also sends the JTextArea so it can be manipulated with-in Libary.java
+     * 
+     * @param evt, onClick starts a JFileChooser from Libary.java
+     */
     private void menubtn_explorerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubtn_explorerActionPerformed
         txa_main.setText("");
         

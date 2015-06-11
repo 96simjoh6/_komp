@@ -8,7 +8,8 @@ import java.io.*;
 import org.json.*;
 /**
  *
- * @author SAJMOON
+ * @author Simon Johansson
+ * Last updated 2015-06-01
  */
 public class Libary {
     
@@ -26,6 +27,16 @@ public class Libary {
         i = 0;
     }
     
+    /**
+     * 
+     * @param first_name takes user-input from txf_first_name 
+     * @param last_name takes user-input from txf_last_name 
+     * @param numb takes user-input from txf_phone
+     * @param age takes user-input from txf_age
+     * @param i Using radio-buttons in GUI, sends a int (i) 1 or 0 
+     *          Then using Switch-case, sends the inputs to a subclass
+     *          Which re-creates the inputs and then adds it into the array.
+     */
     public void saveToFile(String first_name, String last_name, String numb, int age, int i){
         switch(i){
             case 1:
@@ -41,6 +52,10 @@ public class Libary {
         }
     }
     
+    /**
+     * 
+     * @return Filename taken from the file that user selects using JFileChooser
+     */
     public String getFile(){
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
 	fc.showDialog(null, "Välj fil");
@@ -49,6 +64,13 @@ public class Libary {
         return filename;
     }
     
+    /**
+     * 
+     * @param extension From GUI 4 letters, using Switch-case determinants what 
+     *                  "read"-method to use.
+     * @param filename  
+     * @param txa_main  Used so the JTextArea can be manipulated from this file.
+     */
     public void readFile(String extension, String filename, JTextArea txa_main){
         array.clear();   
         
@@ -64,6 +86,12 @@ public class Libary {
         }
     }
     
+    /**
+     * Reads the "XML" file and converts it into a String.
+     * Then sends the String to xmlToString.
+     * @param filename
+     * @return xml_full from xmlToString to readFile
+     */
     public String readXML(String filename){ 
     try(BufferedReader br = new BufferedReader(new FileReader(filename))){
             StringBuilder sb = new StringBuilder();
@@ -83,6 +111,12 @@ public class Libary {
         return xml_full;
     }
     
+    /**
+     * Reads the "JSON" file and converts it into a String.
+     * Then sends the String to jsonToString
+     * @param filename
+     * @return json_full from jsonToString to readFile
+     */
     public String readJSON(String filename){
     try(BufferedReader br = new BufferedReader(new FileReader(filename))){
             StringBuilder sb = new StringBuilder();
@@ -102,6 +136,12 @@ public class Libary {
         return json_full;    
     }
     
+    /**
+     * Manipulates the String using org.json and removes all JSON formating.
+     * 
+     * @param json String from readJSON
+     * @return new String without the JSON formating.
+     */
     public String jsonToString(String json){
         try {
             final JSONObject jo = new JSONObject(json);
@@ -123,6 +163,12 @@ public class Libary {
         return json_full;
     }
     
+    /**
+     * Manipulates the String using different methods to remove XML formating.
+     * 
+     * @param xml String from readXML
+     * @return new String without the XML formating.
+     */
     public String xmlToString(String xml) {
         try {
             File fXmlFile = new File(filename);
@@ -155,16 +201,9 @@ public class Libary {
         return xml_full;
     }
     
-    public String getData(Element e){
-        Node child = e.getFirstChild();
-        if(!(child instanceof CharacterData)){
-        }else{
-            CharacterData cd = (CharacterData) child;
-            return cd.getData();
-        }
-        return null;
-    }
-    
+    /**
+     * Writes the array to the choosen file with XML formating.
+     */
     public void xmlToFile(){
         try{
                     FileWriter fw = new FileWriter(filename, true) ; 
@@ -180,7 +219,9 @@ public class Libary {
                 e.printStackTrace();
             }
         }
-    
+    /**
+     * Writes the array to the choosen file with JSON formating.
+     */
     public void jsonToFile(){
         try{
                     FileWriter fw = new FileWriter(filename, true) ; 

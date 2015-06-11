@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package komp;
 
 /**
  *
- * @author SAJMOON
+ * @author Simon Johansson
+ * Last update 2015-06-01
  */
 public abstract class Abstract{
     
+    /**
+     * Creates a String from the Inputs using different methods in the different Subclasses.
+     * 
+     * @return The String from the choosen sub-class
+     */
     @Override
     public abstract String toString();
 }
